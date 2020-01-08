@@ -1,0 +1,20 @@
+{
+  "name": "go-go",
+  "description": "Web extension providing context menus for the Go programming language",
+  "version": "1.0.0",
+  "licence": "UNLICENCE",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/slewiskelly/go-go.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf dist/js/ go-go.zip",
+    "lint": "tslint src/*",
+    "zip": "zip -r go-go.zip dist/"
+  },
+  "devDependencies": {
+    "@types/chrome": "0.0.91",
+    "typescript": "^3.7.4"
+  }
+}

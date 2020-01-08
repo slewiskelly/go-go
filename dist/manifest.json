@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+  "name": "Go",
+  "description": "Web extension providing context menus for the Go programming language",
+  "version": "1.0.0",
+  "background": {
+    "scripts": [
+      "js/background.js"
+    ],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://play.golang.org/"
+      ],
+      "js": [
+        "js/playground.js"
+      ]
+    }
+  ],
+  "icons": {
+    "16": "assets/go_16.png",
+    "48": "assets/go_48.png",
+    "128": "assets/go_128.png"
+  },
+  "permissions": [
+    "activeTab",
+    "contextMenus",
+    "tabs"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "noEmitOnError": true,
+    "outDir": "dist/js/",
+    "rootDir": "src/",
+    "strict": true,
+    "target": "es6",
+    "types": [
+      "chrome"
+    ]
+  }
+}
