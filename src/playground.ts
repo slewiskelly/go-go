@@ -3,10 +3,28 @@ chrome.runtime.onMessage.addListener((message) => {
     const imports = document.getElementById("importsBox") as HTMLInputElement;
     const fmt = document.getElementById("fmt") as HTMLInputElement;
 
-    // TODO(slewiskelly): Improve this to include the following requirements, if
-    // not already in the provided message:
-    // - package main
-    // - func main() { }
+    let blockComment = false;
+
+    for (const line of message.split("\n")) {
+        if (line.startsWith("/*")) {
+            blockComment = true;
+        }
+
+        if (line.endsWith("*/")) {
+            blockComment = false;
+            continue;
+        }
+
+        if (line.length < 1 || line.startsWith("//") || blockComment) {
+            continue;
+        }
+
+        if (!line.startsWith("package")) {
+            message = "package main\n\n" + message;
+        }
+
+        break;
+    }
 
     code.value = message;
     imports.checked = true;
